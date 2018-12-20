@@ -25,10 +25,10 @@ def fourSumCount(A,B, C, D):
             for k in range(len(C)):
 
                 for l in range(len(D)):
-                    #print(i,j,k,l)
-                    if(A[i]+B[j]+C[k]+D[l])==0:
-                        if (i, j, k, l) not in res:
-                            res.append((i, j, k, l))
+
+                    print("i,j,k,l=",i,j,k,l)
+                    if(A[i]+B[j]+C[k]+D[l])==0 and (i, j, k, l) not in res:
+                        res.append((i, j, k, l))
 
                         #print(res)
                         s+=1
@@ -43,12 +43,12 @@ def fourSumCount(A,B, C, D):
                                 s += 1
                                 if (a,b,c,d) not in res:
                                     res.append((a, b, c, d))
-                                print(i, j, k, l)
+                                print(a,b,c,d)
 
                                 print("Hey")
                                 a+=1
                             else:
-                                i=a
+                                i=a-1
                                 break
                         while b<len(B)-1:
                             if b >= 0 and (B[b] == B[b + 1]):
@@ -57,12 +57,12 @@ def fourSumCount(A,B, C, D):
                                     res.append((a,b,c,d))
 
 
-                                print(i, j, k, l)
+                                print(a,b,c,d)
                                 print("HeyB")
 
                                 b+=1
                             else:
-                                j=b
+                                j=b-1
                                 break
 
                         while c<len(C)-1:
@@ -70,11 +70,11 @@ def fourSumCount(A,B, C, D):
                                 s += 1
                                 if (a,b,c,d) not in res:
                                     res.append((a,b,c,d))
-                                print(i, j, k, l)
+                                print(a,b,c,d)
                                 print("HeyC")
                                 c+=1
                             else:
-                                k=c
+                                k=c-1
                                 break
 
 
@@ -84,13 +84,13 @@ def fourSumCount(A,B, C, D):
                                 if (a,b,c,d) not in res:
                                     res.append((a,b,c,d))
 
-                                print(i, j, k, l)
+                                print(a,b,c,d)
                                 print("HeyD")
 
                                 d+=1
 
                             else:
-                                l=d
+                                l=d-1
                                 break
 
     print(res)

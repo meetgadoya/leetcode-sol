@@ -1,3 +1,22 @@
+'''
+Example 1:
+
+Input: words = ["cat","bt","hat","tree"], chars = "atach"
+Output: 6
+Explanation:
+The strings that can be formed are "cat" and "hat" so the answer is 3 + 3 = 6.
+
+Example 2:
+
+Input: words = ["hello","world","leetcode"], chars = "welldonehoneyr"
+Output: 10
+Explanation:
+The strings that can be formed are "hello" and "world" so the answer is 5 + 5 = 10.
+
+'''
+
+# here remove operation takes O(n) time and so only faster then 75%
+
 class Solution(object):
     def countCharacters(self, words, chars):
         """
@@ -19,6 +38,8 @@ class Solution(object):
                 res += len(word)
         return res
 ########################################################################################################################
+
+# the better solution
 class Solution(object):
     def countCharacters(self, words, chars):
         """
@@ -75,6 +96,45 @@ class Solution(object):
                 else:
                     org_copy[each_char_word] -= 1
 
+            if flag == True:
+                res += len(word)
+        return res
+
+########################################################################################################################
+# the optimal solution
+class Solution(object):
+    def countCharacters(self, words, chars):
+        """
+        :type words: List[str]
+        :type chars: str
+        :rtype: int
+        """
+        res = 0
+
+        org = {}
+        for char in chars:
+            if char in org:
+                org[char] += 1
+            else:
+                org[char] = 1
+
+        for word in words:
+            if len(word) > len(chars):
+                continue
+            flag = True
+            new_word = {}
+            for each_char_word in word:
+                if each_char_word not in org:
+                    flag = False
+                    break
+                if each_char_word in new_word:
+                    new_word[each_char_word] += 1
+                else:
+                    new_word[each_char_word] = 1
+
+                if new_word[each_char_word] > org[each_char_word]:
+                    flag = False
+                    break
             if flag == True:
                 res += len(word)
         return res

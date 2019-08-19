@@ -117,3 +117,26 @@ class Solution:
                     dp[i][j] = (dp[i][j] + dp[i - 1][j - k]) % mod
                     k += 1
         return dp[d][target] % mod
+
+
+
+########################################################################################################################
+class Solution(object):
+    # def find_all_permut(self,)
+
+    def numRollsToTarget(self, d, f, target):
+
+        if target < d * 1 or target > f * d:
+            return 0
+
+        m = [[0] * (target + 1) for row in range(d + 1)]
+
+        for i in range(1, min(f, target) + 1):
+            m[1][i] = 1
+
+        for i in range(2, d + 1):
+            for j in range(i, min(target, f * i) + 1):
+                for k in range(max(1, j - f), j):
+                    m[i][j] = (m[i][j] + m[i - 1][k]) % 1000000007
+
+        return m[d][target]

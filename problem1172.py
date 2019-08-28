@@ -53,7 +53,7 @@ D.pop()            // Returns -1.  There are still no stacks.
 '''
 
 # logic: runtime 856 ms beats 96%
-
+import heapq
 class DinnerPlates(object):
 
     def __init__(self, capacity):

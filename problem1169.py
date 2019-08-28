@@ -49,12 +49,11 @@ class Solution(object):
                 continue
             for j in range(i + 1, n):
                 other_trans = all_transaction[j]
-                if other_trans
-                    if abs(int(trans[1]) - int(other_trans[1])) <= 60 and trans[0] == other_trans[0] and trans[3] != \
-                            other_trans[3]:
-                        res.append(','.join(trans))
-                        res.append(','.join(other_trans))
-                        break
+                if abs(int(trans[1]) - int(other_trans[1])) <= 60 and trans[0] == other_trans[0] and trans[3] != \
+                        other_trans[3]:
+                    res.append(','.join(trans))
+                    res.append(','.join(other_trans))
+                    break
 
         return res
 
@@ -92,7 +91,6 @@ class Solution(object):
 # logic: More better solution with runtime = 60 ms beats 92% soln
 # uses technique to maintain dictionary with same name
 
-class Solution(object):
     def invalidTransactions(self, transactions):
         """
         :type transactions: List[str]

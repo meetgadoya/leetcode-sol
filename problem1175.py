@@ -18,9 +18,12 @@ Example 2:
 Input: n = 100
 Output: 682289015
 
+
 '''
 
 import math
+
+
 class Solution(object):
     def numPrimeArrangements(self, l):
         """
